@@ -38,7 +38,7 @@ import pl.scartout.model.User;
 	            fetch = FetchType.EAGER,
 	            cascade = { CascadeType.PERSIST, CascadeType.REMOVE },
 	            orphanRemoval = true)
-	    private List<Position> positions;
+	    private List<Item> items;
 	    
 	    Goal(){}
 
@@ -79,17 +79,66 @@ import pl.scartout.model.User;
 			this.user = user;
 		}
 
-		public List<Position> getPositions() {
-			return positions;
+		public List<Item> getItems() {
+			return items;
 		}
 
-		public void setPositions(List<Position> positions) {
-			this.positions = positions;
+		public void setItems(List<Item> items) {
+			this.items = items;
 		}
 
 		@Override
 		public String toString() {
 			return "Goal [id=" + id + ", datestart=" + datestart + ", dateend=" + dateend + ", user=" + user + "]";
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((dateend == null) ? 0 : dateend.hashCode());
+			result = prime * result + ((datestart == null) ? 0 : datestart.hashCode());
+			result = prime * result + ((id == null) ? 0 : id.hashCode());
+			result = prime * result + ((items == null) ? 0 : items.hashCode());
+			result = prime * result + ((user == null) ? 0 : user.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Goal other = (Goal) obj;
+			if (dateend == null) {
+				if (other.dateend != null)
+					return false;
+			} else if (!dateend.equals(other.dateend))
+				return false;
+			if (datestart == null) {
+				if (other.datestart != null)
+					return false;
+			} else if (!datestart.equals(other.datestart))
+				return false;
+			if (id == null) {
+				if (other.id != null)
+					return false;
+			} else if (!id.equals(other.id))
+				return false;
+			if (items == null) {
+				if (other.items != null)
+					return false;
+			} else if (!items.equals(other.items))
+				return false;
+			if (user == null) {
+				if (other.user != null)
+					return false;
+			} else if (!user.equals(other.user))
+				return false;
+			return true;
 		}
 	  
 }
