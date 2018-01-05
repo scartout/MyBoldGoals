@@ -1,11 +1,12 @@
-package pl.scartout.dao;
+package pl.scartout.repo;
  
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
  
-import pl.scartout.model.Goal;
+import pl.scartout.model.Item;
  
 @Repository
 @Transactional
-public class GoalDao extends GenericDao<Goal, Long> {
+public class ItemRepo extends GenericRepo<Item, Long> {
+	
 }

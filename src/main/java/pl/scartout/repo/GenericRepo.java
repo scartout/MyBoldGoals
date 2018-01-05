@@ -1,4 +1,4 @@
-package pl.scartout.dao;
+package pl.scartout.repo;
  
 import java.lang.reflect.ParameterizedType;
  
@@ -6,14 +6,14 @@ import javax.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
  
 @Transactional
-public abstract class GenericDao<T, K> {
+public abstract class GenericRepo<T, K> {
  
     @PersistenceContext
     private EntityManager entityManager;
     private Class<T> type;
      
     @SuppressWarnings("unchecked")
-    GenericDao() {
+    GenericRepo() {
         type = (Class<T>) ((ParameterizedType) this.getClass()
                 .getGenericSuperclass())
                 .getActualTypeArguments()[0];

@@ -5,17 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import pl.scartout.dao.UserDao;
 import pl.scartout.model.User;
+import pl.scartout.repo.UserRepo;
 	 
 @Controller
 public class UserController {
 
-	private UserDao userDao;
+	private UserRepo userRepo;
 	 
     @Autowired
-    public UserController(UserDao userDao) {
-        this.userDao = userDao;
+    public UserController(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
     
     @GetMapping("/register")
@@ -26,7 +26,7 @@ public class UserController {
     
 	@PostMapping("/saveuser")
 	public String saveUser(@ModelAttribute User user) {
-		userDao.save(user);
+		userRepo.save(user);
 	return "redirect:/";
 	}
 }

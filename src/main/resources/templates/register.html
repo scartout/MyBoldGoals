@@ -7,9 +7,9 @@
 <body>
     <h1>Registration</h1>
     <form action="#" method="post" th:action="@{/saveuser}" th:object="${user}">
-        <p>Username: <input type="text" th:field="*{username}" /></p>
-        <p>Password: <input type="password" th:field="*{password}" /></p>
-        <p>E-mail: <input type="text" th:field="*{email}" /></p>
+        <p>Username: <input required="required" pattern=".{3,}" title="Login must be at least 3 characters" type="text" th:field="*{username}" /></p>
+        <p>Password: <input required="required" pattern=".{6,}" title="Password must be at least 6 characters" type="password" th:field="*{password}" /></p>
+        <p>E-mail: <input type="email" th:field="*{email}" /></p>
         <input type="submit" value="Save" />
     </form>
 </body>

@@ -30,7 +30,7 @@ import pl.scartout.model.Goal;
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "user_id")
 	    private Long id;
-	    @Size(min = 6)
+	    @Size(min = 3)
 	    private String username;
 	    @Size(min = 6)
 	    private String password;

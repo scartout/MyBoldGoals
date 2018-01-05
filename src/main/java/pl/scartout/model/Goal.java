@@ -28,9 +28,11 @@ import pl.scartout.model.User;
 	    @Column(name = "goal_id")
 	    private Long id;
 	    @Column(nullable = false)
-	    private Date datestart;
-	    @Column
-	    private Date dateend;
+	    private String description;
+	    @Column(name = "date_start")
+	    private Date dateStart;
+	    @Column(name = "date_end")
+	    private Date dateEnd;
 	    @ManyToOne
 	    @JoinColumn(name = "user_id")
 	    private User user;
@@ -40,11 +42,12 @@ import pl.scartout.model.User;
 	            orphanRemoval = true)
 	    private List<Item> items;
 	    
-	    Goal(){}
+	    public Goal(){}
 
-		public Goal(Date datestart, Date dateend) {
-			this.datestart = datestart;
-			this.dateend = dateend;
+		public Goal(String description, Date dateStart, Date dateEnd) {
+			this.description = description;
+			this.dateStart = dateStart;
+			this.dateEnd = dateEnd;
 		}
 
 		public Long getId() {
@@ -55,20 +58,28 @@ import pl.scartout.model.User;
 			this.id = id;
 		}
 
-		public Date getDatestart() {
-			return datestart;
+		public String getDescription() {
+			return description;
 		}
 
-		public void setDatestart(Date datestart) {
-			this.datestart = datestart;
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
-		public Date getDateend() {
-			return dateend;
+		public Date getDateStart() {
+			return dateStart;
 		}
 
-		public void setDateend(Date dateend) {
-			this.dateend = dateend;
+		public void setDateStart(Date dateStart) {
+			this.dateStart = dateStart;
+		}
+
+		public Date getDateEnd() {
+			return dateEnd;
+		}
+
+		public void setDateEnd(Date dateEnd) {
+			this.dateEnd = dateEnd;
 		}
 
 		public User getUser() {
@@ -89,15 +100,17 @@ import pl.scartout.model.User;
 
 		@Override
 		public String toString() {
-			return "Goal [id=" + id + ", datestart=" + datestart + ", dateend=" + dateend + ", user=" + user + "]";
+			return "Goal [id=" + id + ", description=" + description + ", dateStart=" + dateStart + ", dateEnd="
+					+ dateEnd + ", user=" + user + ", items=" + items + "]";
 		}
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + ((dateend == null) ? 0 : dateend.hashCode());
-			result = prime * result + ((datestart == null) ? 0 : datestart.hashCode());
+			result = prime * result + ((dateEnd == null) ? 0 : dateEnd.hashCode());
+			result = prime * result + ((dateStart == null) ? 0 : dateStart.hashCode());
+			result = prime * result + ((description == null) ? 0 : description.hashCode());
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
 			result = prime * result + ((items == null) ? 0 : items.hashCode());
 			result = prime * result + ((user == null) ? 0 : user.hashCode());
@@ -113,15 +126,20 @@ import pl.scartout.model.User;
 			if (getClass() != obj.getClass())
 				return false;
 			Goal other = (Goal) obj;
-			if (dateend == null) {
-				if (other.dateend != null)
+			if (dateEnd == null) {
+				if (other.dateEnd != null)
 					return false;
-			} else if (!dateend.equals(other.dateend))
+			} else if (!dateEnd.equals(other.dateEnd))
 				return false;
-			if (datestart == null) {
-				if (other.datestart != null)
+			if (dateStart == null) {
+				if (other.dateStart != null)
 					return false;
-			} else if (!datestart.equals(other.datestart))
+			} else if (!dateStart.equals(other.dateStart))
+				return false;
+			if (description == null) {
+				if (other.description != null)
+					return false;
+			} else if (!description.equals(other.description))
 				return false;
 			if (id == null) {
 				if (other.id != null)
@@ -140,5 +158,5 @@ import pl.scartout.model.User;
 				return false;
 			return true;
 		}
-	  
+	
 }

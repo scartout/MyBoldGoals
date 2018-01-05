@@ -5,33 +5,31 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import pl.scartout.dao.ItemDao;
 import pl.scartout.model.Item;
+import pl.scartout.repo.ItemRepo;
 	 
 @Controller
 public class ItemController {
 
-	private ItemDao itemDao;
+	private ItemRepo itemRepo;
 	 
     @Autowired
-    public ItemController(ItemDao itemDao) {
-        this.itemDao = itemDao;
+    public ItemController(ItemRepo itemRepo) {
+        this.itemRepo = itemRepo;
     }
     
     @GetMapping("/item")
-    public String home(Model model) {
-    	model.addAttribute("item", new Item());
+    public String home() {
         return "item";
     }
     
     @PostMapping("/saveitem")
-    public String home(@RequestParam String description,
+    public String saveItem(@RequestParam String description,
     					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
     	Item item = new Item(description, date);
-    	itemDao.save(item);
+    	itemRepo.save(item);
         return "redirect:/item";
     }
 
