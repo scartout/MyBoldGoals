@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Goals</title>
+</head>
+<body>
+    <h1>Your goals:</h1>
+        <table border="1">
+            <tr>
+                <th>Date start</th>
+                <th>Date end</th>
+                <th>Description</th>
+                <th>View</th>
+                <th>Add item</th>
+            </tr>
+            <tr th:each="goal: ${goals}">
+                <td th:text="${#dates.format(goal.dateStart, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#dates.format(goal.dateEnd, 'dd-MM-yyyy')}"></td>
+                <td th:text="${goal.description}"></td>
+                <td><a th:href="@{/items}">View</a></td>
+                <td><a th:href="@{/item}">Add item</a></td>
+            </tr>
+        </table>
+    <a th:href="@{/}">Homepage</a>
+</body>
+</html>

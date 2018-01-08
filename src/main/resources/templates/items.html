@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>List of all items</title>
+</head>
+<body>
+    <h1>All items:</h1>
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="item: ${items}">
+                <td th:text="${#dates.format(goal.date, 'dd-MM-yyyy')}"></td>
+                <td th:text="${item.description}"></td>
+            </tr>
+        </table>
+    <a th:href="@{/}">Homepage</a>
+</body>
+</html>

@@ -1,11 +1,10 @@
 package pl.scartout.repo;
  
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
  
 import pl.scartout.model.Role;
  
 @Repository
-@Transactional
-public class RoleRepo extends GenericRepo<Role, Long> {
+public interface RoleRepo extends JpaRepository<Role, Long> {
 }

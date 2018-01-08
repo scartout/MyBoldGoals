@@ -20,7 +20,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 import pl.scartout.model.Goal;
+import javax.xml.bind.annotation.XmlRootElement;
 
+	@XmlRootElement
 	@Entity
 	@Table(name = "users")
 	public class User implements Serializable {
