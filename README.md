@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 # MyBoldGoals - developed by Pawel Dudek
-=======
-# MYBOLDGOALS - developed by Pawel Dudek
->>>>>>> 6cedcff43e4e1a2d6811284a138e2bbf1d5ebed6
+
 ©2018
 Version 0.x.x-SNAPSHOT
 
