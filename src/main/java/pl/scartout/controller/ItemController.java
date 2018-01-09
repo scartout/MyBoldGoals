@@ -38,7 +38,7 @@ public class ItemController {
     
     @GetMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Item> getItems(Model model) {
-        //List<Item> items = itemRepo.findAllByGoalId(1);
+    	//List<Item> items = itemRepo.findAllByGoalId(1);
     	List<Item> items = itemRepo.findAll();
         model.addAttribute("items", items);
         return items;

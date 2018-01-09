@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Add item</h1>
-    <form action="saveitem" method="post">
+    <form th:action="@{/saveitem}" method="post">
         <p>Description: <input required="required" type="text" name="description" /></p>
         <p>Date: <input type="date" name="date" /></p>
         <input type="submit" value="Save" />
