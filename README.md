@@ -20,6 +20,7 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 
 - Spring
 - Spring Boot
+- Spring Security
 - Hibernate
 - HTML
 - Thymeleaf

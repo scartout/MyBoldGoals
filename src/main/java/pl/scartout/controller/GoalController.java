@@ -17,7 +17,6 @@ import pl.scartout.repo.GoalRepo;
 public class GoalController {
 
 	private GoalRepo goalRepo; 
-	
 	 
     @Autowired
     public GoalController(GoalRepo goalRepo) {

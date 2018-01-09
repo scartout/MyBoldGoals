@@ -10,4 +10,5 @@ import pl.scartout.model.Item;
 @Repository
 public interface ItemRepo extends JpaRepository<Item, Long> {
 	List<Item> findAllByGoalId(long id);
+    
 }

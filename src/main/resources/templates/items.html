@@ -10,10 +10,14 @@
             <tr>
                 <th>Date</th>
                 <th>Description</th>
+                <th>Status</th>
+                <th>Switch to complete</th>
             </tr>
             <tr th:each="item: ${items}">
-                <td th:text="${#dates.format(goal.date, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#dates.format(item.date, 'dd-MM-yyyy')}"></td>
                 <td th:text="${item.description}"></td>
+                <td th:text="${item.status}"></td>
+                <td>Switch</td>
             </tr>
         </table>
     <a th:href="@{/}">Homepage</a>
