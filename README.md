@@ -1,8 +1,13 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.x.x-SNAPSHOT
+Version 0.0.7-SNAPSHOT
 
+
+## Missing features in this version (implementation last):
+
+- cascade deleting goals (missing foreign keys methods)
+- associations goal-user and goal-item (missing foreign keys methods)
 
 ## How to use:
 
@@ -25,4 +30,9 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 - HTML
 - Thymeleaf
 - JPA
+- Rest
 - Maven
+
+## Where is a frontend? :-) :
+
+I have just been learing Javascript and Angular.js. The following technologies shall be added soon.

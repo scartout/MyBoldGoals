@@ -71,8 +71,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 			return goal;
 		}
 		
-		
-	
 		public String getStatus() {
 			return status;
 		}

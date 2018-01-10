@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import pl.scartout.model.Goal;
 import pl.scartout.repo.GoalRepo;
-	 
+
 @Controller
 public class GoalController {
-
+	
 	private GoalRepo goalRepo; 
 	 
     @Autowired
@@ -29,13 +29,21 @@ public class GoalController {
         return "goal";
     }
     
-    @PostMapping("/savegoal")
+    @PostMapping("/saveGoal")
     public String savegoal(@RequestParam String description,
     					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateStart,
-    					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateEnd) {
+    					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateEnd ){
     	Goal goal = new Goal(description, dateStart, dateEnd);
     	goalRepo.save(goal);
         return "redirect:/item";
+    }
+    
+    @PostMapping("/deleteGoal")
+    public String deleteGoal(@RequestParam long goalId) {
+    	Goal managedGoal = goalRepo.findById(goalId);
+        managedGoal.getItems().clear();
+    	goalRepo.deleteGoal(goalId);
+        return "redirect:/goals";
     }
     
     @GetMapping(path = "/goals", produces = MediaType.APPLICATION_JSON_VALUE)

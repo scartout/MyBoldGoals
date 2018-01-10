@@ -14,6 +14,7 @@ import pl.scartout.model.Item;
 import pl.scartout.repo.ItemRepo;
 	 
 @Controller
+@SessionAttributes("SessionAttributes")
 public class ItemController {
 
 	private ItemRepo itemRepo;
@@ -23,23 +24,35 @@ public class ItemController {
         this.itemRepo = itemRepo;
     }
     
-    @GetMapping("/item")
-    public String home() {
+    @PostMapping("/item")
+    public String home(){
         return "item";
     }
     
     @PostMapping("/saveitem")
     public String saveItem(@RequestParam String description,
-    					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+    					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
     	Item item = new Item(description, date);
     	itemRepo.save(item);
+    	
         return "redirect:/item";
     }
     
-    @GetMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Item> getItems(Model model) {
-    	//List<Item> items = itemRepo.findAllByGoalId(1);
-    	List<Item> items = itemRepo.findAll();
+    @PostMapping("/completeItem")
+    public String completeItem(@RequestParam long itemId) {
+    	itemRepo.updateItem(itemId);
+        return "itemSuccess";
+    }
+    
+    @PostMapping("/deleteItem")
+    public String deleteItem(@RequestParam long itemId) {
+    	itemRepo.deleteItem(itemId);
+        return "redirect:/goals";
+    }
+    
+    @PostMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Item> getItems(Model model, @RequestParam long goalId) {
+    	List<Item> items = itemRepo.findAllByGoalId(goalId);
         model.addAttribute("items", items);
         return items;
     }

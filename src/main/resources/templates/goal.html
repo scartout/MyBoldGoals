@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Add goal</h1>
-    <form th:action="@{/savegoal}" method="post">
+    <form th:action="@{/saveGoal}" method="post">
         <p>Description: <input required="required" title="Description can't be null" type="text" name="description" /></p>
         <p>Start date: <input type="date" name="dateStart" /></p>
         <p>Scheduled end date: <input type="date" name="dateEnd" /></p>

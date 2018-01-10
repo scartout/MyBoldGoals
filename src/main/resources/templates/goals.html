@@ -13,13 +13,30 @@
                 <th>Description</th>
                 <th>View</th>
                 <th>Add item</th>
+                <th>Delete goal</th>
             </tr>
             <tr th:each="goal: ${goals}">
                 <td th:text="${#dates.format(goal.dateStart, 'dd-MM-yyyy')}"></td>
                 <td th:text="${#dates.format(goal.dateEnd, 'dd-MM-yyyy')}"></td>
                 <td th:text="${goal.description}"></td>
-                <td><a th:href="@{/items}">View</a></td>
-                <td><a th:href="@{/item}">Add item</a></td>
+                <td>
+                	<form action="items" th:action="@{/items}" method="post" >
+    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+    				<input type="submit" value="Items view" />
+    				</form>
+                </td>
+                <td>
+					<form action="item" th:action="@{/item}" method="post" >
+    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+    				<input type="submit" value="Add item" />
+    				</form>
+				</td>
+                <td>
+    				<form action="deleteGoal" th:action="@{/deleteGoal}" method="post" >
+    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+    				<input type="submit" value="Delete" />
+    				</form>
+    			</td>
             </tr>
         </table>
     <a th:href="@{/}">Homepage</a>

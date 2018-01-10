@@ -8,4 +8,6 @@ import pl.scartout.model.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
 	User findByUsername(String username);
+	
+	User findById(Long id);
 }
