@@ -22,5 +22,7 @@ public interface GoalRepo extends JpaRepository<Goal, Long> {
 	@Modifying(clearAutomatically = true)
     @Query("DELETE FROM Goal c WHERE c.id = :goal_id")
     int deleteGoal(@Param("goal_id") long goalId);
+
+	List<Goal> findAllByUserId(String username);
 	
 }

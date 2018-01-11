@@ -1,19 +1,14 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.0.9-SNAPSHOT
+Version 0.1.0
 
-
-## Missing features in this version (implementation last):
-
-- goal-user relationship (missing foreign keys methods) - you see all users goals and items
 
 ## How to use:
 
 1. Install MySQLWorkbench.
 2. Install Spring Tool Suite or IntelliJ IDEA Ultimate.
-3. When you first start, add once roles (uncomment code in SpringJpaBootApplication class before you start the application).
-4. Run the application as Spring Boot App.
+3. Run the application as Spring Boot App.
 
 
 ## Business goal:

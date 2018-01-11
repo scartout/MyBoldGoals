@@ -44,7 +44,7 @@ public class ItemController {
     	Goal goal = goalRepo.getById(goalId);
     	item.setGoal(goal);
     	itemRepo.save(item);
-        return "redirect:/item";
+        return "redirect:/goals";
     }
     
     @PostMapping("/completeItem")

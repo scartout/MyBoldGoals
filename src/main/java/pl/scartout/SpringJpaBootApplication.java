@@ -13,11 +13,13 @@ public class SpringJpaBootApplication {
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext ctx = SpringApplication.run(SpringJpaBootApplication.class, args);
 
-        /*RoleRepo roleRepo = ctx.getBean(RoleRepo.class);
-        Role role1 = new Role("admin");
-        Role role2 = new Role("user");
-        roleRepo.save(role1);
-        roleRepo.save(role2);*/
+        RoleRepo roleRepo = ctx.getBean(RoleRepo.class);
+        if (roleRepo.findByRole("admin") == null) {
+        	Role role1 = new Role(1L, "admin");
+        	roleRepo.save(role1);}
+        if (roleRepo.findByRole("user") == null) {
+        	Role role2 = new Role(2L, "user");
+        	roleRepo.save(role2);}
         
     }
 }
