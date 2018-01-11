@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name="id_item")
+	    @Column(name="item_id")
 	    private Long id;
 	    @Column(nullable = false)
 	    private String description;

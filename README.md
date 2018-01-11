@@ -1,19 +1,20 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.0.7-SNAPSHOT
+Version 0.0.8-SNAPSHOT
 
 
 ## Missing features in this version (implementation last):
 
-- cascade deleting goals (missing foreign keys methods)
-- associations goal-user and goal-item (missing foreign keys methods)
+- cascade deleting goals (missing foreign keys methods) - you can only delete goals without related items
+- goal-user relationship (missing foreign keys methods) - you see all users goals and items
 
 ## How to use:
 
 1. Install MySQLWorkbench.
 2. Install Spring Tool Suite or IntelliJ IDEA Ultimate.
-3. Run application as Spring Boot App.
+3. When you first start, add once roles (uncomment code in SpringJpaBootApplication class before you start the application).
+4. Run the application as Spring Boot App.
 
 
 ## Business goal:
