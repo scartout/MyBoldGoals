@@ -12,15 +12,18 @@ import org.springframework.web.bind.annotation.*;
 
 import pl.scartout.model.Goal;
 import pl.scartout.repo.GoalRepo;
+import pl.scartout.repo.ItemRepo;
 
 @Controller
 public class GoalController {
 	
-	private GoalRepo goalRepo; 
+	private GoalRepo goalRepo;
+	private ItemRepo itemRepo;
 	 
     @Autowired
-    public GoalController(GoalRepo goalRepo) {
+    public GoalController(GoalRepo goalRepo, ItemRepo itemRepo) {
         this.goalRepo = goalRepo;
+        this.itemRepo = itemRepo;
     }
     
     @GetMapping("/goal")
@@ -40,8 +43,9 @@ public class GoalController {
     
     @PostMapping("/deleteGoal")
     public String deleteGoal(@RequestParam long goalId) {
-    	Goal managedGoal = goalRepo.findById(goalId);
+    	Goal managedGoal = goalRepo.getById(goalId);
         managedGoal.getItems().clear();
+        itemRepo.deleteItems(goalId);
     	goalRepo.deleteGoal(goalId);
         return "redirect:/goals";
     }

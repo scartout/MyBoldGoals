@@ -1,12 +1,11 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.0.8-SNAPSHOT
+Version 0.0.9-SNAPSHOT
 
 
 ## Missing features in this version (implementation last):
 
-- cascade deleting goals (missing foreign keys methods) - you can only delete goals without related items
 - goal-user relationship (missing foreign keys methods) - you see all users goals and items
 
 ## How to use:

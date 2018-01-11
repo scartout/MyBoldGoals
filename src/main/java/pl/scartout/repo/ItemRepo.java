@@ -23,4 +23,8 @@ public interface ItemRepo extends JpaRepository<Item, Long> {
 	@Modifying(clearAutomatically = true)
     @Query("DELETE FROM Item c WHERE c.id = :item_id")
     int deleteItem(@Param("item_id") long itemId);
+	
+	@Modifying(clearAutomatically = true)
+    @Query("DELETE FROM Item c WHERE c.id = :goal_id")
+    int deleteItems(@Param("goal_id") long goalId);
 }

@@ -51,7 +51,7 @@ import pl.scartout.model.User;
 			this.dateStart = dateStart;
 			this.dateEnd = dateEnd;
 		}
-
+		
 		public Long getId() {
 			return id;
 		}
