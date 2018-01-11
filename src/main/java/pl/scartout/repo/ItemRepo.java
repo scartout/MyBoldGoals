@@ -1,5 +1,6 @@
 package pl.scartout.repo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +16,8 @@ import pl.scartout.model.Item;
 @Repository
 public interface ItemRepo extends JpaRepository<Item, Long> {
 	List<Item> findAllByGoalId(long id);
+	
+	List<Item> findAllByStatusAndDateLessThan(String status, Date date);
 	
 	@Modifying(clearAutomatically = true)
     @Query("UPDATE Item c SET c.status = 'complete' WHERE c.id = :item_id")

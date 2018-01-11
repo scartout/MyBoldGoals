@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>List of all items</title>
+</head>
+<body>
+    <h1>SUMMARY SERVICE DOESN'T WORK IN THIS VERSION:</h1>
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Switch to complete</th>
+                <th>Delete aim :-(</th>
+            </tr>
+            <tr th:each="item: ${items}">
+                <td th:text="${#dates.format(item.date, 'dd-MM-yyyy')}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.status}"></td>
+                <td>
+                <div th:switch="${item.status}"> 
+                <p th:case="'complete'"></p>
+                <p th:case="*">
+                	<form action="completeitem" th:action="@{/completeItem}" method="post" >
+    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
+    				<input type="submit" value="Complete" />
+    				</form>
+    			</p>
+    			</div></td>
+    			<td>
+    				<form action="deleteitem" th:action="@{/deleteItem}" method="post" >
+    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
+    				<input type="submit" value="Delete" />
+    				</form>
+    			</td>
+            </tr>
+        </table>
+    <a th:href="@{/}">Homepage</a>
+</body>
+</html>

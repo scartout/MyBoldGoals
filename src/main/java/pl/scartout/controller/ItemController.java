@@ -35,6 +35,11 @@ public class ItemController {
         return "item";
     }
     
+    @GetMapping("/summary")
+    public String homeSummary(){
+        return "summary";
+    }
+    
     @PostMapping("/saveitem")
     public String saveItem(@RequestParam String description,
     					@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
@@ -62,6 +67,13 @@ public class ItemController {
     @PostMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Item> getItems(Model model, @RequestParam long goalId) {
     	List<Item> items = itemRepo.findAllByGoalId(goalId);
+    	model.addAttribute("items", items);
+        return items;
+    }
+    
+    @PostMapping(path = "/summary", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Item> getItemsSummary(Model model) {
+    	List<Item> items = itemRepo.findAllByStatusAndDateLessThan("incomplete", new Date());
         model.addAttribute("items", items);
         return items;
     }

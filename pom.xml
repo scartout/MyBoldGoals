@@ -5,7 +5,7 @@
 
 	<groupId>pl.scartout</groupId>
 	<artifactId>MyBoldGoals</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<packaging>jar</packaging>
 
 	<name>MyBoldGoals</name>
@@ -82,4 +82,5 @@
 		</plugins>
 	</build>
 
+	<description>Developed by Pawel Dudek</description>
 </project>

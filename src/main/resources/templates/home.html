@@ -6,12 +6,19 @@
 </head>
 <body>
     <h1>MyBoldGoals</h1>
-    <h3><a th:href="@{/register}">Register</a></h3>
     <h3><a th:href="@{/goal}">Add new goal</a></h3>
     <h3><a th:href="@{/goals}">Goals list</a></h3>
-    <h3><a th:href="@{/login}">Log in</a></h3>
-    <form action="logmeout" th:action="@{/logmeout}" method="post" >
-    	<input type="submit" value="Log me out" />
-    </form>
+    <br></br>
+    <div th:switch="${session.isEmpty()}">
+  		<p th:case="true">
+  			<h3><a th:href="@{/register}">Register</a></h3>
+  			<h3><a th:href="@{/login}">Log in</a></h3>
+  		</p>
+  		<p th:case="false">
+	    <form action="logmeout" th:action="@{/logmeout}" method="post" >
+	    	<input type="submit" value="Log me out" />
+	    </form>
+    	</p>
+    </div>
 </body>
 </html>

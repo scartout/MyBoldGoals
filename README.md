@@ -1,12 +1,12 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.1.0
+Version 0.1.1
 
 
 ## How to use:
 
-1. Install MySQLWorkbench.
+1. Install MySQLWorkbench. Create new empty schema "myboldgoals".
 2. Install Spring Tool Suite or IntelliJ IDEA Ultimate.
 3. Run the application as Spring Boot App.
 
