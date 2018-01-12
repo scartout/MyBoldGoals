@@ -3,14 +3,40 @@
 <head>
 <meta charset="UTF-8" />
 <title>Add goal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>Add goal</h1>
-    <form th:action="@{/saveGoal}" method="post">
-        <p>Description: <input required="required" title="Description can't be null" type="text" name="description" /></p>
-        <p>Start date: <input type="date" name="dateStart" /></p>
-        <p>Scheduled end date: <input type="date" name="dateEnd" /></p>
-        <input type="submit" value="Save" />
-    </form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+		<div class="container">
+	        <div class="col-md-8 col-md-offset-2">
+	    	<form class="form-signin" th:action="@{/saveGoal}" method="post">
+	    		<h2 class="form-signin-heading">Add new goal</h2>
+	    		<br></br>
+		        <h4>Description</h4>
+		        <textarea maxlength="200" required="required" title="Description can't be null" type="text" name="description"
+		        	class="form-control" placeholder="Description"></textarea>
+		        <div class="input-group bootstrap-timepicker timepicker col-md-8">
+		        <br></br>
+		        <h4>Start date</h4>
+		        <input id="timepicker" maxlength="200" type="date" name="dateStart"
+		        	class="form-control" placeholder="Start date"></input>
+		        </div>
+		        <div class="input-group bootstrap-timepicker timepicker col-md-8">
+		        <br></br>
+		        <h4>Scheduled end date</h4>
+		        <input id="timepicker" maxlength="200" type="date" name="dateEnd"
+		        	class="form-control" placeholder="Scheduled end date"></input>
+		        </div>
+		        <br></br>
+		        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />
+	    	</form>
+	    	</div>
+	    </div>
 </body>
 </html>
+
+	

@@ -3,10 +3,18 @@
 <head>
 <meta charset="UTF-8"></meta>
 <title>List of all items</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>All items:</h1>
-        <table border="1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+	  	<h2>Items list</h2>  
+        <table class="table table-striped">
+            <thead>
             <tr>
                 <th>Date</th>
                 <th>Description</th>
@@ -14,6 +22,8 @@
                 <th>Switch to complete</th>
                 <th>Delete aim :-(</th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="item: ${items}">
                 <td th:text="${#dates.format(item.date, 'dd-MM-yyyy')}"></td>
                 <td th:text="${item.description}"></td>
@@ -24,18 +34,19 @@
                 <p th:case="*">
                 	<form action="completeitem" th:action="@{/completeItem}" method="post" >
     				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
-    				<input type="submit" value="Complete" />
+    				<input class="btn btn-success" type="submit" value="Complete" />
     				</form>
     			</p>
     			</div></td>
     			<td>
     				<form action="deleteitem" th:action="@{/deleteItem}" method="post" >
     				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
-    				<input type="submit" value="Delete" />
+    				<input class="btn btn-warning" type="submit" value="Delete" />
     				</form>
     			</td>
             </tr>
+            </tbody>
         </table>
-    <a th:href="@{/}">Homepage</a>
+    </div>
 </body>
 </html>

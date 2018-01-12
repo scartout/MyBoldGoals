@@ -3,14 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <title>Item</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>Add item</h1>
-    <form th:action="@{/saveitem}" method="post">
-        <p>Description: <input required="required" type="text" name="description" /></p>
-        <p>Date: <input type="date" name="date" /></p>
-        <input type="submit" value="Save" />
-    </form>
-    <a th:href="@{/}">Homepage</a>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div th:replace="fragments/navbar :: navbar"></div>
+	
+	<div class="container">
+        <div class="col-md-8 col-md-offset-2">
+    	<form class="form-signin" th:action="@{/saveitem}" method="post">
+    		<h2 class="form-signin-heading">Add new item</h2>
+    		<br></br>
+	        <h4>Description</h4>
+	        <textarea maxlength="200" required="required" title="Description can't be null" type="text" name="description"
+	        	class="form-control" placeholder="Description"></textarea>
+	        <div class="input-group bootstrap-timepicker timepicker col-md-2">
+	        <br></br>
+	        <h4>Date</h4>
+	        <input id="timepicker" maxlength="200" type="date" name="date"
+	        	class="form-control" placeholder="Date"></input>
+	        </div>
+	        <br></br>
+	        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />
+    	</form>
+    	</div>
+    </div>
 </body>
 </html>

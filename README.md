@@ -1,7 +1,7 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.1.2
+Version 0.2.0
 
 
 ## How to use:
@@ -26,8 +26,9 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 - Thymeleaf
 - JPA
 - Rest
+- Bootstrap
 - Maven
 
-## Where is a frontend? :-) :
+## Planned changes in the future:
 
 I have just been learing Javascript and Angular.js. The following technologies shall be added soon.

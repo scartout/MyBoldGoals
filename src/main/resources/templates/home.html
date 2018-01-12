@@ -3,23 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <title>MyBoldGoals</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>MyBoldGoals</h1>
-    <h3><a th:href="@{/goal}">Add new goal</a></h3>
-    <h3><a th:href="@{/goals}">Goals list</a></h3>
-    <h3><a th:href="@{/summary}">Out of date items summary</a></h3>
-    <br></br>
-    <div th:switch="${session.isEmpty()}">
-  		<p th:case="true">
-  			<h3><a th:href="@{/register}">Register</a></h3>
-  			<h3><a th:href="@{/login}">Log in</a></h3>
-  		</p>
-  		<p th:case="false">
-	    <form action="logmeout" th:action="@{/logmeout}" method="post" >
-	    	<input type="submit" value="Log me out" />
-	    </form>
-    	</p>
-    </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div th:replace="fragments/navbar :: navbar"></div>
+
 </body>
 </html>
