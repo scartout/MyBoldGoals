@@ -35,8 +35,8 @@ public class ItemController {
         return "item";
     }
     
-    @GetMapping("/summary")
-    public String homeSummary(){
+    @PostMapping("/summary")
+    public String home(){
         return "summary";
     }
     
@@ -71,7 +71,7 @@ public class ItemController {
         return items;
     }
     
-    @PostMapping(path = "/summary", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/summary", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Item> getItemsSummary(Model model) {
     	List<Item> items = itemRepo.findAllByStatusAndDateLessThan("incomplete", new Date());
         model.addAttribute("items", items);

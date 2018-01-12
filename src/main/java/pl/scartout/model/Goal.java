@@ -47,6 +47,11 @@ import pl.scartout.model.User;
 	    public Goal(){}
 
 		public Goal(String description, Date dateStart, Date dateEnd) {
+			if(dateStart.after(dateEnd)){
+			    Date tempDate = dateEnd;
+			    dateEnd = dateStart;
+			    dateStart = tempDate;
+			}
 			this.description = description;
 			this.dateStart = dateStart;
 			this.dateEnd = dateEnd;

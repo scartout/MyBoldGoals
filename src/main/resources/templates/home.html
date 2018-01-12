@@ -8,6 +8,7 @@
     <h1>MyBoldGoals</h1>
     <h3><a th:href="@{/goal}">Add new goal</a></h3>
     <h3><a th:href="@{/goals}">Goals list</a></h3>
+    <h3><a th:href="@{/summary}">Out of date items summary</a></h3>
     <br></br>
     <div th:switch="${session.isEmpty()}">
   		<p th:case="true">

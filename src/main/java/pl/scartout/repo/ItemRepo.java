@@ -19,6 +19,8 @@ public interface ItemRepo extends JpaRepository<Item, Long> {
 	
 	List<Item> findAllByStatusAndDateLessThan(String status, Date date);
 	
+	List<Item> findAllByStatusAndDateGreaterThan(String string, Date date);
+	
 	@Modifying(clearAutomatically = true)
     @Query("UPDATE Item c SET c.status = 'complete' WHERE c.id = :item_id")
     int updateItem(@Param("item_id") long itemId);
@@ -30,4 +32,5 @@ public interface ItemRepo extends JpaRepository<Item, Long> {
 	@Modifying(clearAutomatically = true)
     @Query("DELETE FROM Item c WHERE c.id = :goal_id")
     int deleteItems(@Param("goal_id") long goalId);
+
 }
