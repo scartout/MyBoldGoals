@@ -28,9 +28,9 @@
 	  				<li><a th:href="@{/login}">Log in</a></li>
 	  			</p>
   				<p th:case="false">
-				    <form action="logmeout" th:action="@{/logmeout}" method="post" >
-				    	<input type="submit" value="Log me out" />
-				    </form>
+				    <form action="logmeout" th:action="@{/logmeout}" method="post" name="someForm">
+						<a href="#" onclick="document.someForm.submit();">Log out</a>
+					</form>
     			</p>
     			</li>
            </ul>
