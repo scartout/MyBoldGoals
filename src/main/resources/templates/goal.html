@@ -12,20 +12,20 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 
 		<div class="container">
-	        <div class="col-md-8 col-md-offset-2">
+	        <div class="col-md-8 col-md-offset-0">
 	    	<form class="form-signin" th:action="@{/saveGoal}" method="post">
 	    		<h2 class="form-signin-heading">Add new goal</h2>
 	    		<br></br>
 		        <h4>Description</h4>
 		        <textarea maxlength="200" required="required" title="Description can't be null" type="text" name="description"
 		        	class="form-control" placeholder="Description"></textarea>
-		        <div class="input-group bootstrap-timepicker timepicker col-md-8">
+		        <div class="input-group bootstrap-timepicker timepicker col-md-2">
 		        <br></br>
 		        <h4>Start date</h4>
 		        <input id="timepicker" maxlength="200" type="date" name="dateStart"
 		        	class="form-control" placeholder="Start date"></input>
 		        </div>
-		        <div class="input-group bootstrap-timepicker timepicker col-md-8">
+		        <div class="input-group bootstrap-timepicker timepicker col-md-2">
 		        <br></br>
 		        <h4>Scheduled end date</h4>
 		        <input id="timepicker" maxlength="200" type="date" name="dateEnd"
@@ -35,6 +35,13 @@
 		        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />
 	    	</form>
 	    	</div>
+	    	<div class="bs-callout bs-callout-info">
+  				<h2>Tips:</h2>
+  				<h4>1. Goal form define overall objective. Fill form with your big objective.</h4>
+  				<h4>2. Always determine start date and scheduled end date. There's no-no time like the present.</h4>
+  				<h4>3. Your goal cannot be impersonal - write "I finish with smoking" instead of "Stop smoking".</h4>
+  				<h4>4. If you want to lose 15 kg, write "I'm loosing 25 kg" - bold goals boost your motivation more than normal goals.</h4>
+			</div>
 	    </div>
 </body>
 </html>

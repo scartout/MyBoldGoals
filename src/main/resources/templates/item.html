@@ -12,7 +12,7 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	
 	<div class="container">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-0">
     	<form class="form-signin" th:action="@{/saveitem}" method="post">
     		<h2 class="form-signin-heading">Add new item</h2>
     		<br></br>
@@ -29,6 +29,13 @@
 	        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />
     	</form>
     	</div>
+    	<div class="bs-callout bs-callout-primary">
+  			<h2>Tips:</h2>
+  			<h4>1. Fill items form with your small activities which help you achieve big objective.</h4>
+  			<h4>2. Always determine achieving date. There's no-no time like the present.</h4>
+  			<h4>3. Your goal cannot be impersonal - write "I finish with smoking" instead of "Stop smoking".</h4>
+  			<h4>4. Don't use phrase "I'll try".</h4>
+  		</div>
     </div>
 </body>
 </html>
