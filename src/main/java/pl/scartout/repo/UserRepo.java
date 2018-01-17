@@ -9,9 +9,8 @@ import pl.scartout.model.User;
  
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
-	User findByUsername(String username);
 	
-	User findById(Long id);
+	User findByUsername(String username);
 	
 	@Query("SELECT id FROM User c WHERE c.username=:username")
 	Long idByUsername(@Param("username") String username);

@@ -7,5 +7,7 @@ import pl.scartout.model.Role;
  
 @Repository
 public interface RoleRepo extends JpaRepository<Role, Long> {
+	
 	Role findByRole(String role);
+
 }

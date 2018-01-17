@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +31,7 @@ public class ItemController {
         this.goalRepo = goalRepo;
     }
     
-    @PostMapping("/item")
+    @RequestMapping("/item")
     public String home(HttpSession httpSession, @RequestParam Long goalId){
     	httpSession.setAttribute("goalId", goalId);
         return "item";
@@ -73,7 +75,8 @@ public class ItemController {
     
     @RequestMapping(value = "/summary", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Item> getItemsSummary(Model model) {
-    	List<Item> items = itemRepo.findAllByStatusAndDateLessThan("incomplete", new Date());
+    	UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	List<Item> items = itemRepo.itemByUsername(userDetails.getUsername());
         model.addAttribute("items", items);
         return items;
     }

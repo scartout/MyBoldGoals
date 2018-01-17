@@ -13,7 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public UserDetailsService customUserDetailsService() {
 		return new CustomUserDetailsService();
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.permitAll()
 		.and()
         .logout()
-            .logoutUrl("/logmeout")
+            .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll();
 	}

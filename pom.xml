@@ -5,8 +5,6 @@
 
 	<groupId>pl.scartout</groupId>
 	<artifactId>MyBoldGoals</artifactId>
-	<version>0.2.3-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<name>MyBoldGoals</name>
 
@@ -22,6 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<javax-servlet.version>2.5</javax-servlet.version>
+		<bootstrap.version>3.3.7</bootstrap.version>
 	</properties>
 
 	<dependencies>
@@ -69,6 +68,12 @@
         </dependency>
         
         <dependency>
+    		<groupId>org.webjars</groupId>
+    		<artifactId>bootstrap</artifactId>
+    		<version>${bootstrap.version}</version>
+		</dependency>
+        
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
@@ -83,4 +88,5 @@
 	</build>
 
 	<description>Developed by Pawel Dudek</description>
+	<version>1.0.0</version>
 </project>

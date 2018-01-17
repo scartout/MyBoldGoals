@@ -34,7 +34,7 @@ public class GoalController {
         this.userRepo = userRepo;
     }
     
-    @GetMapping("/goal")
+    @RequestMapping("/goal")
     public String home(Model model) {
     	model.addAttribute("goalModel", new Goal());
         return "goal";

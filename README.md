@@ -1,7 +1,7 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 0.2.3-SNAPSHOT
+Version 1.0.0
 
 
 ## How to use:
@@ -23,13 +23,9 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 - Spring Security
 - Hibernate
 - HTML
+- CSS
 - Thymeleaf
 - JPA
-- Rest
 - Bootstrap
 - Javascript
 - Maven
-
-## Planned changes in the future:
-
-I have just been learing Javascript and Angular.js. The following technologies shall be added soon.

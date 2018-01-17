@@ -14,15 +14,13 @@ import pl.scartout.model.Goal;
 @Transactional
 @Repository
 public interface GoalRepo extends JpaRepository<Goal, Long> {
+	
 	List<Goal> findAllByUserId(long id);
 	
-	Goal findById(Long id);
 	Goal getById(Long id);
 	
 	@Modifying(clearAutomatically = true)
     @Query("DELETE FROM Goal c WHERE c.id = :goal_id")
     int deleteGoal(@Param("goal_id") long goalId);
-
-	List<Goal> findAllByUserId(String username);
 	
 }

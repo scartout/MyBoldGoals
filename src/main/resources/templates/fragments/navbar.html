@@ -11,7 +11,7 @@
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <a href="/" class="navbar-brand">MyBoldGoals <span><img src="http://moziru.com/images/fist-clipart-power-to-person-9.png" height="30" width="30"></img></span></a>        
+        <a href="/" class="navbar-brand">MyBoldGoals <span><img src="images/fist.png" height="30" width="30"></img></span></a>        
  
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
             <span class="glyphicon glyphicon-list"></span>
@@ -28,7 +28,7 @@
 	  				<li><a th:href="@{/login}">Log in</a></li>
 	  			</p>
   				<p th:case="false">
-				    <form action="logmeout" th:action="@{/logmeout}" method="post" name="someForm">
+				    <form action="logmeout" th:action="@{/logout}" method="post" name="someForm">
 					</form>
 					<li><a href="#" onclick="document.someForm.submit();">Log out</a></li>
     			</p>
