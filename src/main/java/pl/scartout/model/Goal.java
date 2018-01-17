@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import pl.scartout.model.User;
@@ -31,8 +32,10 @@ import pl.scartout.model.User;
 	    private Long id;
 	    @Column(nullable = false)
 	    private String description;
+	    @NotNull
 	    @Column(name = "date_start")
 	    private Date dateStart;
+	    @NotNull
 	    @Column(name = "date_end")
 	    private Date dateEnd;
 	    @ManyToOne

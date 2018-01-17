@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,8 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 	    private Long id;
 	    @Column(nullable = false)
 	    private String description;
+	    @NotNull
 	    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	    private Date date;
+	    @NotNull
 	    private String status = "incomplete";
 	    @ManyToOne
 	    @JoinColumn(name = "goal_id")

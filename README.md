@@ -1,7 +1,7 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 1.0.0
+Version 1.0.1
 
 
 ## How to use:
