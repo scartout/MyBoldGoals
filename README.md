@@ -1,7 +1,7 @@
 # MyBoldGoals - developed by Pawel Dudek
 
 ©2018
-Version 1.0.1
+Version 1.0.2
 
 
 ## How to use:
@@ -29,3 +29,5 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 - Bootstrap
 - Javascript
 - Maven
+- JUnit
+- EqualsVerifier
