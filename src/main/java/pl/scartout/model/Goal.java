@@ -23,7 +23,7 @@ import pl.scartout.model.User;
 	@XmlRootElement
 	@Entity
 	@Table(name = "goals")
-	final public class Goal implements Serializable {
+	public final class Goal implements Serializable {
 	    private static final long serialVersionUID = 1L;
 	    
 	    @Id
