@@ -6,55 +6,55 @@
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-	<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>    
-	<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container">
-    	<div class="col-md-8 col-md-offset-0">
-	  	<h2>Items list - your activities which help you achieve big objective</h2>
-	  	<br></br> 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Date end</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Switch to complete</th>
-                <th>Delete aim :-(</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item: ${items}">
-                <td th:text="${#dates.format(item.date, 'dd-MM-yyyy')}"></td>
-                <td th:text="${item.description}"></td>
-                <td th:text="${item.status}"></td>
-                <td>
-                <div th:switch="${item.status}"> 
-                <p th:case="'complete'"></p>
-                <p th:case="*">
-                	<form action="completeitem" th:action="@{/completeItem}" method="post" >
-    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
-    				<input class="btn btn-success" type="submit" value="Complete" />
-    				</form>
-    			</p>
-    			</div></td>
-    			<td>
-    				<form action="deleteitem" th:action="@{/deleteItem}" method="post" >
-    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
-    				<input class="btn btn-warning" type="submit" value="Delete" />
-    				</form>
-    			</td>
-            </tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="bs-callout bs-callout-primary">
-  			<h2>Tips:</h2>
-  			<h4>1. Check your progress daily.</h4>
-  			<h4>2. Think about your aims "I want to achieve them" instead of "I must achieve them" e.g. "I want to lose weight".</h4>
+		<div class="row">
+	        <div class="col-sm-12 col-md-8">
+			  	<h2>Items list - your activities which help you achieve big objective</h2>
+			  	<br></br> 
+		        <table class="table table-striped">
+		            <thead>
+		            <tr>
+		                <th>Date end</th>
+		                <th>Description</th>
+		                <th>Status</th>
+		                <th>Switch to complete</th>
+		                <th>Delete aim :-(</th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="item: ${items}">
+		                <td th:text="${#dates.format(item.date, 'dd-MM-yyyy')}"></td>
+		                <td th:text="${item.description}"></td>
+		                <td th:text="${item.status}"></td>
+		                <td>
+		                <div th:switch="${item.status}"> 
+		                <p th:case="'complete'"></p>
+		                <p th:case="*">
+		                	<form action="completeitem" th:action="@{/completeItem}" method="post" >
+		    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
+		    				<input class="btn btn-success" type="submit" value="Complete" />
+		    				</form>
+		    			</p>
+		    			</div></td>
+		    			<td>
+		    				<form action="deleteitem" th:action="@{/deleteItem}" method="post" >
+		    				<input type="hidden" name="itemId" th:attr="value=${item.id}"/>
+		    				<input class="btn btn-warning" type="submit" value="Delete" />
+		    				</form>
+		    			</td>
+		            </tr>
+		            </tbody>
+		        </table>
+		    </div>
+	        <div class="col-sm-12 col-md-4">
+	  			<h2>Tips:</h2>
+	  			<h4>1. Check your progress daily.</h4>
+	  			<h4>2. Think about your aims "I want to achieve them" instead of "I must achieve them" e.g. "I want to lose weight".</h4>
+			</div>
 		</div>
-    </div>
+	</div>
 </body>
 </html>
