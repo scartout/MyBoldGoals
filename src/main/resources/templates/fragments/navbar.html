@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"></meta>
-<title></title>
-</head>
-<body>
-	
-	<div th:fragment="navbar" class="navbar">
+<div th:fragment="navbar" class="navbar">
     <div class="navbar-inner">    
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container">
         <a href="/" class="navbar-brand">MyBoldGoals <span><img src="images/fist.png" height="30" width="30"></img></span></a>        
  
@@ -22,24 +14,18 @@
             <li><a th:href="@{/goal}">Add new goal</a></li>
             <li><a th:href="@{/goals}">Goals list</a></li>
             <li><a th:href="@{/summary}">Summary</a></li>
-            	<li th:switch="${session.isEmpty()}">
-	  			<p th:case="true">
-	  				<li><a th:href="@{/register}">Register</a></li>
-	  				<li><a th:href="@{/login}">Log in</a></li>
-	  			</p>
-  				<p th:case="false">
-				    <form action="logmeout" th:action="@{/logout}" method="post" name="someForm">
-					</form>
-					<li><a href="#" onclick="document.someForm.submit();">Log out</a></li>
-    			</p>
+	  			<li sec:authorize="!isAuthenticated()">
+	  				<a th:href="@{/login}">Sign in</a>
+	  			</li>
+  				<li sec:authorize="isAuthenticated()">
+				    <form action="logmeout" th:action="@{/logout}" method="post" name="someForm"></form>
+					<a href="#" onclick="document.someForm.submit();">Log out</a>
     			</li>
+
            </ul>
         </div> 
       </div>
 	</nav>
 
 	</div>
-	</div>
-
-</body>
-</html>
+</div>

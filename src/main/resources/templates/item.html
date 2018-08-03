@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <title>Add item</title>
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
 </head>
 <body>
 
@@ -19,17 +20,19 @@
 		    	<form class="form-signin" th:action="@{/saveitem}" method="post">
 		    		<h2 class="form-signin-heading">Add new item</h2>
 		    		<br></br>
-			        <h4>Description</h4>
+			        <label>Description</label>
 			        <textarea maxlength="200" required="required" title="Description can't be null" type="text" name="description"
 			        	class="form-control" placeholder="Description"></textarea>
 			        <div class="input-group bootstrap-timepicker timepicker col-md-2">
 			        <br></br>
-			        <h4>Date</h4>
+			        <label>Date</label>
 			        <input id="timepicker" maxlength="200" type="date" name="date"
 			        	class="form-control" placeholder="Date"></input>
 			        </div>
 			        <br></br>
-			        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" />
+			        <div class="col-md-3 pull-right">
+			        	<input class="btn btn-lg btn-important btn-block" type="submit" value="Save" />
+		    		</div>
 		    	</form>
 	    	</div>
 	    	<div class="col-sm-12 col-md-4">
@@ -41,5 +44,8 @@
 	  		</div>
   		</div>
     </div>
+    
+    <div th:include="fragments/footer :: footer"></div>
+    
 </body>
 </html>

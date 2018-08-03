@@ -16,24 +16,46 @@
 	<br></br>
     <div class="container">
 	    <div class="row">
-	        <div class="col-sm-8 col-md-4 col-md-offset-4">
+	        <div class="col-sm-4 col-sm-offset-1">
 	        <form class="form-signin" action="#" method="post" th:action="@{/login}" th:object="${user}">
 	        	<div class="col-sm-12 col-md-12">
-	        		<p class="section_title">Log in</p>
+	        		<h2>Log in</h2>
 	        	</div>
 		        <div class="col-sm-12 col-md-12">
-		        	<input id="login" class="form_input" placeholder="Login" required="required" pattern=".{3,}" title="Login must be at least 3 characters" type="text" th:field="*{username}" />
+		        	<input id="login_login" class="login_field req_field" placeholder="Login" required="required" pattern=".{3,}" title="Login must be at least 3 characters" type="text" th:field="*{username}" />
 		        </div>
 		        <div class="col-sm-12 col-md-12">
-		        	<input id="password" class="form_input" placeholder="Password" required="required" pattern=".{6,}" title="Password must be at least 6 characters" type="password" th:field="*{password}" />
+		        	<input id="password_login" class="login_field req_field" placeholder="Password" required="required" pattern=".{6,}" title="Password must be at least 6 characters" type="password" th:field="*{password}" />
 	        	</div>
 	        	<div class="col-sm-12 col-md-12">
-	        		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Log in" />
+	        		<input id="button_login" class="btn btn-lg btn-important btn-block" type="submit" value="Log in" />
 	        	</div>
 	    	</form>
 	    	</div>
-	    </div>
+
+	        <div class="col-sm-4 col-sm-offset-1">
+		        <form class="form-signin" action="#" method="post" th:action="@{/register}" th:object="${user}">
+		        	<div class="col-sm-12 col-md-12">
+		        		<h2>Register</h2>
+		        	</div>
+		        	<div class="col-sm-12 col-md-12">
+			        	<input id="login_register" class="register_field req_field" placeholder="Login" required="required" pattern=".{3,}" title="Login must be at least 3 characters" type="text" th:field="*{username}" />
+			        </div>
+			        <div class="col-sm-12 col-md-12">
+			        	<input id="password_register" class="register_field req_field" placeholder="Password" required="required" pattern=".{6,}" title="Password must be at least 6 characters" type="password" th:field="*{password}" />
+			        </div>
+			        <div class="col-sm-12 col-md-12">
+			        	<input id="email_register" class="register_field req_field" placeholder="E-mail" type="email" th:field="*{email}" />
+			        </div>
+			        <div class="col-sm-12 col-md-12">
+		        		<input id="button_register" class="btn btn-lg btn-important btn-block" type="submit" disabled="disabled" value="Submit" />
+		        	</div>
+		   		</form>
+	    	</div>
+    	</div>
     </div>
+    
+    <div th:replace="fragments/footer :: footer"></div>
     
     <script src="/assets/js/util.js"></script>
 

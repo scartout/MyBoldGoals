@@ -4,6 +4,7 @@
 <meta charset="UTF-8"></meta>
 <title>Goals</title>
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
 </head>
 <body>
 	
@@ -16,46 +17,54 @@
 	<div class="container">
 		<div class="row">
 		  	<div class="col-md-12">
-			  	<h2>Goals list</h2>            
-			  	<table class="table table-striped">
-		            <thead>
-		            <tr>
-		                <th>Date start</th>
-		                <th>Date end</th>
-		                <th>Description</th>
-		                <th>View</th>
-		                <th>Add item</th>
-		                <th>Delete goal</th>
-		            </tr>
-		            </thead>
-		            <tbody>
-		            <tr th:each="goal: ${goals}">
-		                <td th:text="${#dates.format(goal.dateStart, 'dd-MM-yyyy')}"></td>
-		                <td th:text="${#dates.format(goal.dateEnd, 'dd-MM-yyyy')}"></td>
-		                <td th:text="${goal.description}"></td>
-		                <td>
-		                	<form action="items" th:action="@{/items}" method="post" >
-			    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
-			    				<input class="btn btn-info" type="submit" value="Items view" />
-		    				</form>
-		                </td>
-		                <td>
-							<form action="item" th:action="@{/item}" method="post" >
-			    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
-			    				<input class="btn btn-warning" type="submit" value="Add item" />
-		    				</form>
-						</td>
-		                <td>
-		    				<form action="deleteGoal" th:action="@{/deleteGoal}" method="post" >
-			    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
-			    				<input class="btn btn-danger" type="submit" value="Delete" />
-		    				</form>
-		    			</td>
-		            </tr>
-		            </tbody>
-		       </table>
+		  		<div th:if="${!goals.empty}">
+				  	<h2>Goals list</h2>            
+				  	<table class="table table-striped">
+			            <thead>
+			            <tr>
+			                <th>Date start</th>
+			                <th>Date end</th>
+			                <th>Description</th>
+			                <th>View</th>
+			                <th>Add item</th>
+			                <th>Delete goal</th>
+			            </tr>
+			            </thead>
+			            <tbody>
+			            <tr th:each="goal: ${goals}">
+			                <td th:text="${#dates.format(goal.dateStart, 'dd-MM-yyyy')}"></td>
+			                <td th:text="${#dates.format(goal.dateEnd, 'dd-MM-yyyy')}"></td>
+			                <td th:text="${goal.description}"></td>
+			                <td>
+			                	<form action="items" th:action="@{/items}" method="post" >
+				    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+				    				<input class="btn btn-default" type="submit" value="Items view" />
+			    				</form>
+			                </td>
+			                <td>
+								<form action="item" th:action="@{/item}" method="post" >
+				    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+				    				<input class="btn btn-default" type="submit" value="Add item" />
+			    				</form>
+							</td>
+			                <td>
+			    				<form action="deleteGoal" th:action="@{/deleteGoal}" method="post" >
+				    				<input type="hidden" name="goalId" th:attr="value=${goal.id}"/>
+				    				<input class="btn btn-default" type="submit" value="Delete" />
+			    				</form>
+			    			</td>
+			            </tr>
+			            </tbody>
+			       </table>
+		       </div>
+		        <div th:unless="${!goals.empty}">
+		        	<h2>You don't have any goals</h2>
+	        	</div>	
         	</div>
 		</div>
 	</div>
+		
+	<div th:replace="fragments/footer :: footer"></div>
+	
 </body>
 </html>
