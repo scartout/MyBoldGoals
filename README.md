@@ -18,17 +18,7 @@ Set your goals, only bold goals and stay on track to achieve them. Application s
 
 ## Technologies used:
 
-- Spring
-- Spring Boot
-- Spring Security
-- Hibernate
-- HTML
-- CSS
-- Thymeleaf
-- JPA
-- Bootstrap
-- JavaScript
-- SHA
+- Spring, Spring Boot, Spring Security, Hibernate, JPA
+- JavaScript, JQuery, HTML, CSS, Bootstrap, Thymeleaf
 - Maven
-- JUnit
-- EqualsVerifier
+- JUnit, EqualsVerifier
